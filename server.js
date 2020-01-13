@@ -6,9 +6,7 @@ const util = require('util');
 
 const app = express();
 
-// const mainRoute = require('./routes/main-page');
-
-// const productController = require('./controllers/product');
+const mainRoute = require('./routes/mainRoute');
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -17,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 axios({
     'method': 'GET',
-    'url':'https://wordsapiv1.p.rapidapi.com/words/',
+    'url':'https://wordsapiv1.p.rapidapi.com/words/?random=true',
     'headers':{
     'content-type':'application/octet-stream',
     'x-rapidapi-host':'wordsapiv1.p.rapidapi.com',
@@ -27,15 +25,11 @@ axios({
         'letters': '7'
     }
 }).then( res => {
-    let maxPulled = res.data.results.total;
-    const wordCollection = res.data.results.data
-    let randNum = Math.floor(Math.random(1) * 100)
-    console.log(wordCollection[randNum]);
+    let word = res.data.word;
+    app.set('word', word);
 })
 
-app.get('/', (req, res) => {
-    res.render('index');
-})
+app.use(mainRoute);
 
 const server = app.listen(8880, () => {
     console.log(`server running on ${server.address().port}`);

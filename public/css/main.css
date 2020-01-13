@@ -1,0 +1,16 @@
+*, *::after, *::before {
+  box-sizing: border-box; }
+
+body {
+  background-color: rgba(3, 140, 252, 0.5);
+  text-align: center;
+  color: #222; }
+
+.board {
+  background-color: #025497; }
+  .board__word {
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-size: 200px;
+    padding: 0;
+    margin: 0; }

@@ -4,7 +4,8 @@
   "description": "a countdown conundrum game",
   "main": "server.js",
   "scripts": {
-    "startDev": "nodemon server.js"
+    "startDev": "nodemon server.js",
+    "scss": "node-sass --watch public/scss -o public/css"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "node-sass": "^4.13.0",
     "nodemon": "^2.0.2"
   }
 }
