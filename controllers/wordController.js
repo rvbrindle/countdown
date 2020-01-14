@@ -1,9 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 
-const Router = express.Router();
-
-Router.get('/', (req, res, next) => {
+exports.get_word = (req, res, next) => {
     axios({
         'method': 'GET',
         'url':'https://wordsapiv1.p.rapidapi.com/words/?random=true',
@@ -15,13 +13,8 @@ Router.get('/', (req, res, next) => {
         'params':{
             'letters': '7'
         }
-    }).then( randomWord => {
-        let word = randomWord.data.word;
-        // app.set('word', word);
-        res.render('../views/index', {
-            word: word
-        })
+    }).then( res => {
+        let word = res.data.word;
+        app.set('word', word);
     })
-})
-
-module.exports = Router;
+}
