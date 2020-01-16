@@ -17,11 +17,10 @@ Router.get('/', (req, res, next) => {
         }
     }).then( randomWord => {
         let word = randomWord.data.word;
-        // app.set('word', word);
+ 
         res.render('../views/index', {
             word: word
         })
     })
 })
-
 module.exports = Router;

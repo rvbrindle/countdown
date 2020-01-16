@@ -7,11 +7,15 @@
 <body>
     <h1> Humdrum Conundrum </h1>
     <div class="board">
-        <p class="board__word" id='set-word'> <%= word %> </p>
+        <p class="board__word" id="set-word"> <%= word %> </p>
     </div>
+
+    <% let guess; if (!guess === 'undefined') { %> <p> hello </p> <% } %>
+
     <div class="input-block">
-        <form method="POST" action="/guess" class='input-block__form'>
+        <form method="POST" action="/guess" class="input-block__form">
             <input type="text" name="guess" class="input-block__guess">
+            <input type="hidden" name="word" value="<%= word %>">
             <button type="input-block__btn btn">Submit</button>
         </form>
     </div>
