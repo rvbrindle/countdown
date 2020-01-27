@@ -13,12 +13,15 @@ Router.get('/', (req, res, next) => {
         'x-rapidapi-key':'D0XaG8sCX6mshQxZV73Wrc6QDJdWp1c0sv0jsnF6FXKjSUrlrr'
         },
         'params':{
-            'letters': '7'
+            'letters': '6'
         }
     }).then( randomWord => {
         let word = randomWord.data.word;
+        const shuffle = word => [...word].reduceRight((res,_,__,arr) => [...res,arr.splice(~~(Math.random()*arr.length),1)[0]],[]).join('');
+        let jumbledWord = shuffle(word);
  
         res.render('../views/index', {
+            jumbledWord: jumbledWord,
             word: word
         })
     })

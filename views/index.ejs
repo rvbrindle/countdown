@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Humdrum Conundrum</title>
+    <title>Conundrum</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1> Humdrum Conundrum </h1>
-    <div class="board">
-        <p class="board__word" id="set-word"> <%= word %> </p>
+    <h1> <span class="pop">C</span><span class="pop">O</span><span class="pop">N</span><span class="pop">U</span><span class="pop">N</span><span class="pop">D</span><span class="pop">R</span><span class="pop">U</span><span class="pop">M</span> </h1>
+    <div class="previous-guess">
+        <% if (typeof wrongGuess !== 'undefined') { %>
+        <p><%= wrongGuess %></p>
+            <% } %>
     </div>
-
-    <% let guess; if (!guess === 'undefined') { %> <p> hello </p> <% } %>
+    <div class="board">
+        <p class="board__word" id="set-word"> <%= jumbledWord %> </p>
+    </div>
 
     <div class="input-block">
         <form method="POST" action="/guess" class="input-block__form">
             <input type="text" name="guess" class="input-block__guess">
             <input type="hidden" name="word" value="<%= word %>">
+            <input type="hidden" name="jumbledWord" value="<%= jumbledWord %>">
             <button type="input-block__btn btn">Submit</button>
         </form>
     </div>

@@ -6,6 +6,35 @@ body {
   text-align: center;
   color: #222; }
 
+h1 :nth-child(4) {
+  transform: rotate(14deg); }
+
+h1 :nth-child(6) {
+  transform: rotate(-12deg); }
+
+h1 :nth-child(2) {
+  transform: rotate(-14deg); }
+
+h1 :nth-child(9) {
+  transform: rotate(18deg); }
+
+.pop {
+  display: inline-block;
+  background-image: linear-gradient(to left, ivory, aliceblue);
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 7px;
+  box-shadow: 3px 3px rgba(2, 2, 2, 0.5); }
+
+.previous-guess {
+  width: 100%;
+  display: block;
+  background-image: linear-gradient(to top, orange, red);
+  font-size: 30px; }
+  .previous-guess p {
+    padding: 10px;
+    margin: 0; }
+
 .board {
   background-color: #025497; }
   .board__word {
